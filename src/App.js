@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import './App.css'
 
 class App extends Component {
   constructor(props) {
@@ -32,11 +33,15 @@ class App extends Component {
         location,
         error: false,
       });
-
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Unable to find city', this.state.searchQuery);
       this.setState({ error: true });
     }
+    const mapURL= `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_KEY}&center=${this.state.location.lat},${this.state.location.lon}&zoom=12&size=500x500&format=jpeg`
+    const otherResponse= await axios.get(mapURL)
+    const map = otherResponse.config.url;
+    this.setState({map})
   }
   render() {
     return (
@@ -46,13 +51,13 @@ class App extends Component {
           <Form>
             <Row className="justify-content-md-center">
               <Col sm={3} className="my-1">
-                <Form.Label htmlFor="inlineFormInputName" visuallyHidden>
+                <Form.Label className="form-label" htmlFor="inlineFormInputName" visuallyHidden>
                   Please Enter City Name
                 </Form.Label>
                 <Form.Control onChange={(event) => this.setState({ searchQuery: event.target.value })} placeholder="Ex: Seattle" />
               </Col>
               <Col xs="auto" className="my-1">
-                <Button onClick={this.getLocation} as="input" type="submit" value="Submit" variant="primary" />{' '}
+                <Button className="button" onClick={this.getLocation} as="input" type="submit" value="Submit" variant="primary" />{' '}
                 {/* <Button onClick={this.getLocation} variant="primary">Explore!</Button>{' '} */}
               </Col>
             </Row>
@@ -61,6 +66,12 @@ class App extends Component {
             <Col>
               {this.state.location.place_id &&
                 <h3>The city is: {this.state.location.display_name}</h3>
+              }
+            </Col>
+            <Col>
+              {this.state.location.place_id &&
+              <img src={this.state.map}
+              alt="Map" />
               }
             </Col>
             <Col>
