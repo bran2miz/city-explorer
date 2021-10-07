@@ -1,10 +1,11 @@
 # Project Name
 
 **Author**: Brandon Mizutani
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.0 (Trello: [City Explorer](https://trello.com/b/ENQ558B6/city-explorer-api) | Netlify: [City Explorer](https://mizutani-city-explorer.netlify.app/))
 
 ## Overview
-This application, City Explorer, utilizes the Axios Libary to render user's request for location data (such as the longitude and latitude and a map) from LocationIQ (third-party API)
+
+This application, City Explorer, utilizes the Axios library to render user's request for location data (such as the longitude and latitude and a map) from LocationIQ (third-party API)
 
 ## Getting Started
 
