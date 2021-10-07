@@ -54,11 +54,10 @@ class App extends Component {
                 <Form.Label className="form-label" htmlFor="inlineFormInputName" visuallyHidden>
                   Please Enter City Name
                 </Form.Label>
-                <Form.Control onChange={(event) => this.setState({ searchQuery: event.target.value })} placeholder="Ex: Seattle" />
+                <Form.Control onChange={(event) => this.setState({ searchQuery: event.target.value })} placeholder="Ex: Los Angeles" />
               </Col>
               <Col xs="auto" className="my-1">
                 <Button className="button" onClick={this.getLocation} as="input" type="submit" value="Submit" variant="primary" />{' '}
-                {/* <Button onClick={this.getLocation} variant="primary">Explore!</Button>{' '} */}
               </Col>
             </Row>
           </Form>
@@ -76,11 +75,11 @@ class App extends Component {
             </Col>
             <Col>
               {this.state.location.place_id &&
-                <h3> Latitude: {this.state.location.lat}  |  Longitude: {this.state.location.lon}</h3>
+                <h3> Latitude: {this.state.location.lat}  |  <br>Longitude: {this.state.location.lon}</br></h3>
               }
             </Col>
             {
-              this.state.error && <h3>Please enter a city (make sure you're spelling it correctly)</h3>
+              this.state.error && <h3>Enter a Valid City (appropriate spelling please!)</h3>
             }
           </Row>
         </Container>

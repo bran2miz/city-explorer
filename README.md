@@ -1,22 +1,51 @@
 # Project Name
 
-**Author**: Your Name Goes Here
+**Author**: Brandon Mizutani
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+This application, City Explorer, utilizes the Axios Libary to render user's request for location data (such as the longitude and latitude and a map) from LocationIQ (third-party API)
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
-Step 1 **WhiteBoard**- ![WhiteBoard Image](./src/images/whiteboard.png)
+
+Step 1: **WhiteBoard**- ![WhiteBoard Image](./src/images/whiteboard.png)
+
+Step 2: create react app then a repo and merge them together
+
+Step 3: npm i react-bootstrap/Axios/
+
+Step 4: Set up LocationIQ account and copy key
+
+Step 5: create a skeleton exterior code (ie constructor function, render/return, header and footer components)/create .env file with key and value
+
+Step 6: copy from bootstrap favored styled elements (I used container, row, and col)
+
+Step 7: refer to notes to create a form/submit.
+
+Step 8: Create a variable to pass the url to the api key name and the value. Add await response feature.
+
+Step 9:
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+- LocationIQ.com (api)
+- Bootstrap
+- JavaScript
+- State and Props
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+10/06/21 5:25pm - Finished with Lab 6 (created an Application that utilizes API)
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+JP Jones
+Jae Loney
+
+## Retrospective Lab 06
+
+Estimate of time needed to complete: 4 hours
+
+Start time: 3:20pm
+
+Finish time: 8pm
+
+Actual time needed to complete: 5 hours
