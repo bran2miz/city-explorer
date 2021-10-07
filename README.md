@@ -43,10 +43,25 @@ Jae Loney
 
 ## Retrospective Lab 06
 
-Estimate of time needed to complete: 4 hours
+  Estimate of time needed to complete: 4 hours
 
-Start time: 3:20pm
+  Start time: 3:20pm
 
-Finish time: 8pm
+  Finish time: 8pm
 
-Actual time needed to complete: 5 hours
+  Actual time needed to complete: 5 hours
+
+1. What went well, that I might forget if I don’t write down?
+  The lab was very difficult! City Explorer wasn't easy, but one of things that really helped was the Trello board! Also whiteboarding the assignment today was also very helpful in figuring out where to start on the code.
+
+2. What did I learn today?
+  I learned ALOT about API's. In particular the try/catch methods.
+
+3. What should I do differently next time?
+  Setting up the locationiq on Netlify and formatting the key. That portion of my code was the most difficult to understand.
+
+4. What still puzzles me, or what do I need to learn more about?
+  If there is a way to use the API in the live server. It was a little frustrating to constantly push and merge my branches and then wait for Netlify to give the ok to merge the PR to my main branch.
+
+1. Is the assignment complete? If not, where exactly did you leave off, and what work remains?
+  Everything is complete. I would like to maybe add more CSS styling choices, but other than that it works!
