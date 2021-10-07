@@ -35,7 +35,7 @@ Step 9:
 - State and Props
 
 ## Change Log
-10/06/21 5:25pm - Finished with Lab 6 (created an Application that utilizes API)
+10/06/21 8pm - Finished with Lab 6 (created an Application that utilizes API)
 
 ## Credit and Collaborations
 JP Jones
