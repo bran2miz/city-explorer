@@ -1,14 +1,15 @@
 import { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
+import '../App.css'
 
 class Footer extends Component {
   render() {
     return (
       <>
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="info" variant="dark">
           <Container className="justify-content-md-center">
-            <Navbar.Brand href="#home">
+            <Navbar.Brand className="footer-city" href="#home">
               Back to the Top
             </Navbar.Brand>
           </Container>
