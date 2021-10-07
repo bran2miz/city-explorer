@@ -4,12 +4,15 @@
 
 a.header-city {
   font-size: 40px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: oblique;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 a.footer-city  {
   font-size: 40px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .justify-content-md-center {
