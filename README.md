@@ -1,4 +1,4 @@
-# Project Name
+# City Explorer
 
 **Author**: Brandon Mizutani
 **Version**: 1.0.0 (Trello: [City Explorer](https://trello.com/b/ENQ558B6/city-explorer-api) | Netlify: [City Explorer](https://mizutani-city-explorer.netlify.app/))
