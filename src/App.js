@@ -54,7 +54,7 @@ class App extends Component {
                 <Form.Label className="form-label" htmlFor="inlineFormInputName" visuallyHidden>
                   Please Enter City Name
                 </Form.Label>
-                <Form.Control onChange={(event) => this.setState({ searchQuery: event.target.value })} placeholder="Ex: Seattle" />
+                <Form.Control onChange={(event) => this.setState({ searchQuery: event.target.value })} placeholder="Ex: Los Angeles" />
               </Col>
               <Col xs="auto" className="my-1">
                 <Button className="button" onClick={this.getLocation} as="input" type="submit" value="Submit" variant="primary" />{' '}
