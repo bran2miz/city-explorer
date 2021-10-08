@@ -39,9 +39,9 @@ class App extends Component {
       this.setState({ error: true });
     }
     const mapURL= `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_KEY}&center=${this.state.location.lat},${this.state.location.lon}&zoom=12&size=500x500&format=jpeg`
-    const otherResponse= await axios.get(mapURL)
-    const map = otherResponse.config.url;
-    this.setState({map})
+    // const otherResponse= await axios.get(mapURL)
+    // const map = otherResponse.config.url;
+    this.setState({map: mapURL})
   }
   render() {
     return (
