@@ -1,11 +1,10 @@
 import { Component } from 'react';
 import axios from 'axios';
-// import './App.css'
-import Weather from './Weather.js'
+import '../App.css'
+import Weather from './Weather.js';
+import Movies from './Movies.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { Form, Button, Card, Container } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
@@ -17,7 +16,9 @@ class Main extends Component {
       location: {},
       error: false,
       weatherData: [],
-      movie: {}
+      movieData: [],
+      displayMovies: false,
+      errorMessage: '',
     }
   }
 
@@ -34,6 +35,7 @@ class Main extends Component {
         error: false,
       });
       this.getForecast();
+      this.getMovies();
 
     } catch (error) {
       console.error('Unable to find city', this.state.searchQuery);
@@ -46,30 +48,21 @@ class Main extends Component {
     this.setState({
       map,
     })
-
-    // // const weatherUrl = `${process.env.REACT_APP_WEATHER_URL}weather?searchQuery=${this.state.searchQuery}&lon=${this.state.location.lon}&lat=${this.state.location.lat}`
-    // //const weatherUrl = `https://api.weatherbit.io/v2.0/${this.state.searchQuery}?lat=${this.state.location.lat}&lon=${this.state.location.lon}&${process.env.REACT_APP_WEATHER_KEY}&include=minutely`
-    // const weatherUrl = `http://localhost:3001/weather?searchQuery=${this.state.searchQuery}&lon=${this.state.location.lon}&lat=${this.state.location.lat}`
-    // console.log(weatherUrl)
-    // const responseThree = await axios.get(weatherUrl)
-    // const weather = responseThree.data.city_name;
-    // this.setState({
-    //   weather,
-    // })
   }
 
 
 
   getForecast = async () => {
-    // console.log(this.state.searchQuery);
 
     try {
-      const weatherUrl = `http://localhost:3001/weather?searchQuery=${this.state.searchQuery}&lon=${this.state.location.lon}&lat=${this.state.location.lat}`
-      const daWeather = await axios.get(weatherUrl);
-      // console.log(daWeather.data);
-      // let weatherArray = daWeather.data;
-      // console.log(weatherArray);
-      let weatherArray = daWeather.data.map(weather => {
+      // This URL is the path to my remote server
+      const weatherUrl = `https://mizutani-city-explorer.herokuapp.com/weather?searchQuery=${this.state.searchQuery}&lon=${this.state.location.lon}&lat=${this.state.location.lat}`
+      // This URL is the path to my local server
+      // const weatherUrl = `http://localhost:3001/weather?lon=${this.state.location.lon}&lat=${this.state.location.lat}`
+
+      const theWeather = await axios.get(weatherUrl);
+
+      let weatherArray = theWeather.data.map(weather => {
         return weather;
       });
       this.setState({
@@ -80,8 +73,31 @@ class Main extends Component {
     }
   };
 
+  getMovies = async () => {
+
+    try {
+      // This URL is the path to my remote server
+      const movieUrl = `https://mizutani-city-explorer.herokuapp.com/movies?searchQuery=${this.state.searchQuery}`
+      // This URL is the path to my local server
+      // const movieUrl = `http://localhost:3001/movies?searchQuery=${this.state.searchQuery}`
+
+      const movieData = await axios.get(movieUrl);
+
+      this.setState({
+        movieData: movieData.data,
+        displayMovies: true,
+      });
+    } catch (err) {
+      console.log(err)
+      this.setState({
+        displayMovies: false,
+      })
+    }
+  };
+
+
   render() {
-    console.log(this.state.weatherData);
+    console.log(this.state.movieData);
     return (
       <>
         <Container fluid>
@@ -94,12 +110,12 @@ class Main extends Component {
                 <Form.Control onChange={(event) => this.setState({ searchQuery: event.target.value })} placeholder="Ex: Seattle" />
               </Col>
               <Col xs="auto" className="my-1">
-                <Button onClick={this.getLocation} as="input" type="submit" value="Submit" variant="primary" />{' '}
+                <Button className="button" onClick={this.getLocation} as="input" type="submit" value="Submit" variant="primary" />{' '}
               </Col>
             </Row>
           </Form>
 
-          <Row className="justify-content-md-center">
+          <Row className="justify-content-md-center" id="moveLonAndLat">
             <Col className="align-items-md-center">
               {this.state.location.place_id &&
                 <h3>The city is: {this.state.location.display_name}</h3>
@@ -112,26 +128,30 @@ class Main extends Component {
             </Col>
           </Row>
 
-              <Row className="justify-content-md-center">
+          <Row className="justify-content-md-center">
+            <Col className="forecast">
+              {this.state.weatherData.map(weather => (
+                <Weather weather={weather} />
+              ))}
+            </Col>
             <Col>
               {this.state.location.place_id &&
                 <img src={this.state.map} alt="Map" />
               }
             </Col>
-            <Col>
-            {this.state.weatherData.map(weather => (
-              <Weather weather={weather} />
-              // <p> {weather.date}</p>
-            ))}
+            <Col className="movieImg">
+              {this.state.movieData.slice(0, 5).map(movie => (
+                <Movies movie={movie} />
+              ))}
             </Col>
-            </Row>
-            
+          </Row>
           <Col>
-          {
-            this.state.error && <h3>Please enter a city (make sure you're spelling it correctly)</h3>
-          }
+            {
+              this.state.error && <h3>Please enter a city (make sure you're spelling it correctly)</h3>
+            }
           </Col>
-          
+
+
         </Container>
       </>
     )
