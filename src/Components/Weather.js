@@ -5,10 +5,10 @@ import ListGroup from 'react-bootstrap/ListGroup';
 class Weather extends Component {
   render() {
     return (
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '30.3rem' }}>
         <ListGroup variant="flush">
-          <ListGroup.Item>{this.props.weather.date}</ListGroup.Item>
-          <ListGroup.Item>{this.props.weather.description}</ListGroup.Item>
+          <ListGroup.Item><strong>Date: </strong> {this.props.weather.date}</ListGroup.Item>
+          <ListGroup.Item><strong>Weather Forecast: </strong>{this.props.weather.description}</ListGroup.Item>
         </ListGroup>
       </Card>
     );

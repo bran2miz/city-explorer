@@ -19,10 +19,26 @@ a.footer-city  {
   padding: 15px;
 }
 
+#moveLonAndLat {
+  margin-left: 80px;
+}
+
 .button {
   margin-top: 52px;
 }
 
 .form-label {
   font-size: 30px;
+}
+
+.forecast{
+  margin-left: 10px;
+}
+
+.movie-card {
+  text-align: justify;
+}
+
+.movieTitle{
+  text-align: center;
 }
