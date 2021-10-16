@@ -10,7 +10,7 @@ class Header extends Component {
       <>
         <Navbar bg="info" variant="dark">
           <Container className="justify-content-md-center">
-            <Navbar.Brand className="header-city" href="#home">
+            <Navbar.Brand className="header-city" href="https://mizutani-city-explorer.netlify.app/">
               City Explorer
             </Navbar.Brand>
           </Container>

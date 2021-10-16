@@ -9,7 +9,7 @@ class Footer extends Component {
       <>
         <Navbar bg="info" variant="dark">
           <Container className="justify-content-md-center">
-            <Navbar.Brand className="footer-city" href="#home">
+            <Navbar.Brand className="footer-city" href="https://mizutani-city-explorer.netlify.app/">
               Back to the Top
             </Navbar.Brand>
           </Container>
