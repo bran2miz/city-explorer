@@ -134,9 +134,9 @@ class Main extends Component {
                 <Weather weather={weather} />
               ))}
             </Col>
-            <Col>
+            <Col className="move-location-map">
               {this.state.location.place_id &&
-                <img src={this.state.map} alt="Map" />
+                <img src={this.state.map} className="move-location-map" alt="Map" />
               }
             </Col>
             <Col className="movieImg">
