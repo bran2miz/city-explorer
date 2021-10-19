@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import axios from 'axios';
-import '../App.css'
-import Weather from './Weather.js';
-import Movies from './Movies.js';
+import '../../src/App.css';
+import Weather from './WeatherDay/Weather.js';
+import Movie from './Movies/Movie.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, Container } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row'
@@ -56,9 +56,9 @@ class Main extends Component {
 
     try {
       // This URL is the path to my remote server
-      const weatherUrl = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.searchQuery}&lon=${this.state.location.lon}&lat=${this.state.location.lat}`
+      // const weatherUrl = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.searchQuery}&lon=${this.state.location.lon}&lat=${this.state.location.lat}`
       // This URL is the path to my local server
-      // const weatherUrl = `http://localhost:3001/weather?lon=${this.state.location.lon}&lat=${this.state.location.lat}`
+      const weatherUrl = `http://localhost:3001/weather?lon=${this.state.location.lon}&lat=${this.state.location.lat}`
 
       const theWeather = await axios.get(weatherUrl);
 
@@ -77,9 +77,9 @@ class Main extends Component {
 
     try {
       // This URL is the path to my remote server
-      const movieUrl = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.searchQuery}`
+      // const movieUrl = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.searchQuery}`
       // This URL is the path to my local server
-      // const movieUrl = `http://localhost:3001/movies?searchQuery=${this.state.searchQuery}`
+      const movieUrl = `http://localhost:3001/movies?searchQuery=${this.state.searchQuery}`
 
       const movieData = await axios.get(movieUrl);
 
@@ -141,7 +141,7 @@ class Main extends Component {
             </Col>
             <Col className="movieImg">
               {this.state.movieData.slice(0, 5).map(movie => (
-                <Movies movie={movie} />
+                <Movie movie={movie} />
               ))}
             </Col>
           </Row>
