@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
-import '../App.css'
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import '../App.css';
 
 class Header extends Component {
   render() {

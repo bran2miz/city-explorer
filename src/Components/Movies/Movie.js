@@ -1,7 +1,7 @@
 import { Component } from "react";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
-import '../App.css';
+import '../../App.css';
 
 class Movie extends Component {
 
