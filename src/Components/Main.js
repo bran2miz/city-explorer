@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 import '../../src/App.css';
-import Weather from './WeatherDay/Weather.js';
+import MainWeather from './WeatherDay.js';
 import Movie from './Movies/Movie.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, Container } from 'react-bootstrap';
@@ -56,9 +56,9 @@ class Main extends Component {
 
     try {
       // This URL is the path to my remote server
-      const weatherUrl = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.searchQuery}&lon=${this.state.location.lon}&lat=${this.state.location.lat}`
+      // const weatherUrl = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.searchQuery}&lon=${this.state.location.lon}&lat=${this.state.location.lat}`
       // This URL is the path to my local server
-      // const weatherUrl = `http://localhost:3001/weather?lon=${this.state.location.lon}&lat=${this.state.location.lat}`
+      const weatherUrl = `http://localhost:3001/weather?lon=${this.state.location.lon}&lat=${this.state.location.lat}`
 
       const theWeather = await axios.get(weatherUrl);
 
@@ -77,9 +77,9 @@ class Main extends Component {
 
     try {
       // This URL is the path to my remote server
-      const movieUrl = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.searchQuery}`
+      // const movieUrl = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.searchQuery}`
       // This URL is the path to my local server
-      // const movieUrl = `http://localhost:3001/movies?searchQuery=${this.state.searchQuery}`
+      const movieUrl = `http://localhost:3001/movies?searchQuery=${this.state.searchQuery}`
 
       const movieData = await axios.get(movieUrl);
 
@@ -130,9 +130,7 @@ class Main extends Component {
 
           <Row className="justify-content-md-center">
             <Col className="forecast">
-              {this.state.weatherData.map(weather => (
-                <Weather weather={weather} />
-              ))}
+            <MainWeather showWeather = {this.state.showWeather} weatherData={this.state.weatherData} />
             </Col>
             <Col className="move-location-map">
               {this.state.location.place_id &&
